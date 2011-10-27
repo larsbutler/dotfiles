@@ -6,6 +6,7 @@
 
 " If the open file is a .py file, show a visual error if line length >= 80 chars:
 :autocmd BufRead,BufNewFile *.py match ErrorMsg '\%>79v.\+'
+:autocmd FileType make setlocal noexpandtab
 :set number
 :colorscheme inkpot
 :set cursorline
