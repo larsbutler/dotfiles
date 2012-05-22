@@ -27,3 +27,15 @@
 :autocmd BufRead,BufNewFile *.py match ErrorMsg '\%>79v.\+'
 " When a .py file is written, recreate tags in the current dir.
 au BufWritePost *.py silent! !ctags -R &
+
+" Trim trailing whitespace:
+function TrimWhiteSpace()
+: %s/\s*$//
+: ''
+:endfunction
+
+set list listchars=tab:»·,trail:·
+autocmd FileWritePre   * :call TrimWhiteSpace()
+autocmd FileAppendPre  * :call TrimWhiteSpace()
+autocmd FilterWritePre * :call TrimWhiteSpace()
+autocmd BufWritePre    * :call TrimWhiteSpace()
