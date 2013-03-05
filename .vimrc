@@ -2,17 +2,21 @@
 "
 :syntax on
 :set number
+:set ruler
 :colorscheme inkpot
 :set expandtab
 :set tabstop=4
 :set shiftwidth=4
 :set incsearch
 :set cursorline
+:set nohidden
 
 " Makefile settings
 "
 " Tabs are important in Makefiles
 :autocmd FileType make setlocal noexpandtab
+" go fmt also prefers tabs to spaces
+:autocmd FileType go setlocal noexpandtab
 
 " ctags settings
 "
@@ -26,12 +30,16 @@
 " This makes pep8 happy.
 :autocmd BufRead,BufNewFile *.py match ErrorMsg '\%>79v.\+'
 " When a .py file is written, recreate tags in the current dir.
-au BufWritePost *.py silent! !ctags -R &
+" au BufWritePost *.py silent! !ctags -R &
 
 " Trim trailing whitespace:
 function TrimWhiteSpace()
-: %s/\s*$//
-: ''
+    " Don't strip whitespace on these filetypes
+    if &ft =~ 'diff'
+        return
+    endif
+    %s/\s*$//
+    ''
 :endfunction
 
 set list listchars=tab:»·,trail:·
