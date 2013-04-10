@@ -29,6 +29,8 @@
 " If the open file is a .py file, show a visual error if line length >= 80 chars.
 " This makes pep8 happy.
 :autocmd BufRead,BufNewFile *.py match ErrorMsg '\%>79v.\+'
+" Display an error in .js files as well if the line grows beyond 79 chars.
+:autocmd BufRead,BufNewFile *.js match ErrorMsg '\%>79v.\+'
 " When a .py file is written, recreate tags in the current dir.
 " au BufWritePost *.py silent! !ctags -R &
 
