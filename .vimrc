@@ -15,8 +15,13 @@
 "
 " Tabs are important in Makefiles
 :autocmd FileType make setlocal noexpandtab
+
 " go fmt also prefers tabs to spaces
 :autocmd FileType go setlocal noexpandtab
+
+" 2 space tabs in clojure source:
+:autocmd FileType clojure setlocal tabstop=2
+:autocmd FileType clojure setlocal shiftwidth=2
 
 " ctags settings
 "
