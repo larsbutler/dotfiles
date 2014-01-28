@@ -1,0 +1,7 @@
+[user]
+    name = Lars Butler
+    email = Lars.Butler@gmail.com
+[color]
+    ui = auto
+[core]
+    editor = vim
