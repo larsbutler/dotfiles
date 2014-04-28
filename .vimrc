@@ -35,8 +35,16 @@
 " This makes pep8 happy.
 :autocmd BufRead,BufNewFile *.py :match ErrorMsg '\%>79v.\+'
 :autocmd FileType python set textwidth=79
+
+" JavaScript settings
+"
 " Display an error in .js files as well if the line grows beyond 79 chars.
 :autocmd BufRead,BufNewFile *.js :match ErrorMsg '\%>79v.\+'
+" set javascript syntax highlighting for .json files
+:autocmd BufRead,BufNewFile *.json :setf javascript
+
+" git settings
+"
 " For well-crafted git commit messages,
 " limit the length of messages to 72 chars
 :autocmd FileType gitcommit :match ErrorMsg '\%>72v.\+'
