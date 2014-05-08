@@ -56,6 +56,10 @@ function TrimWhiteSpace()
     if &ft =~ 'diff'
         return
     endif
+    " Same thing for .t files (used for cram tests)
+    if &ft =~ 'tads'
+        return
+    endif
     %s/\s*$//
     ''
 :endfunction
