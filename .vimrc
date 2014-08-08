@@ -10,6 +10,8 @@ set shiftwidth=4
 set incsearch
 set cursorline
 set nohidden
+" Use tree style listing in Explore mode
+let g:netrw_liststyle = 3
 
 " Makefile settings
 "
