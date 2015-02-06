@@ -10,6 +10,8 @@ set shiftwidth=4
 set incsearch
 set cursorline
 set nohidden
+set list listchars=tab:»·,trail:·
+
 " Use tree style listing in Explore mode
 let g:netrw_liststyle = 3
 
@@ -18,8 +20,10 @@ let g:netrw_liststyle = 3
 " Tabs are important in Makefiles
 autocmd FileType make setlocal noexpandtab
 
+" golang settings
 " go fmt also prefers tabs to spaces
 autocmd FileType go setlocal noexpandtab
+autocmd FileType go set nolist
 
 " 2 space tabs in clojure source:
 autocmd FileType clojure setlocal tabstop=2
@@ -66,7 +70,6 @@ function TrimWhiteSpace()
     ''
 endfunction
 
-set list listchars=tab:»·,trail:·
 autocmd FileWritePre   * :call TrimWhiteSpace()
 autocmd FileAppendPre  * :call TrimWhiteSpace()
 autocmd FilterWritePre * :call TrimWhiteSpace()
