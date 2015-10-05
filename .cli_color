@@ -1,0 +1,81 @@
+#!/bin/bash
+# From the `ls` man page:
+# The color designators are as follows:
+#       a     black
+#       b     red
+#       c     green
+#       d     brown
+#       e     blue
+#       f     magenta
+#       g     cyan
+#       h     light grey
+#       A     bold black, usually shows up as dark grey
+#       B     bold red
+#       C     bold green
+#       D     bold brown, usually shows up as yellow
+#       E     bold blue
+#       F     bold magenta
+#       G     bold cyan
+#       H     bold light grey; looks like bright white
+#       x     default foreground or background
+#
+# Note that the above are standard ANSI colors.  The actual display may differ
+# depending on the color capabilities of the terminal in use.
+#
+# The order of the attributes are as follows:
+#       1.   directory
+#       2.   symbolic link
+#       3.   socket
+#       4.   pipe
+#       5.   executable
+#       6.   block special
+#       7.   character special
+#       8.   executable with setuid bit set
+#       9.   executable with setgid bit set
+#       10.  directory writable to others, with sticky bit
+#       11.  directory writable to others, without sticky bit
+#
+# The default is "exfxcxdxbxegedabagacad", i.e. blue foreground and default
+# background for regular directories, black foreground and red background for
+# setuid executables, etc.
+
+# Cre
+export CLICOLOR=1
+black="a"
+red="b"
+green="c"
+brown="d"
+blue="e"
+magenta="f"
+cyan="g"
+light_grey="h"
+bold_back="A"  # dark grey
+bold_red="B"
+bold_green="C"
+bold_brown="D"  # yellow
+bold_blue="E"
+bold_magenta="F"
+bold_cyan="G"
+bold_light_grey="H"  # bright white
+default="x"
+
+# Each color is a pair of characters, indicating foreground and background
+# respectively.
+directory="${black}${green}"
+symlink="${bold_magenta}${default}"
+socket="${bold_cyan}${default}"
+pipe="${bold_brown}${default}"
+executable="${bold_blue}${default}"
+block_special="${blue}${cyan}"
+char_special="${blue}${brown}"
+exec_setuid="${black}${red}"
+exec_setgid="${black}${cyan}"
+dir_wo_sticky="${black}${green}"
+dir_wo_unsticky="${blue}${brown}"
+
+LSCOLORS="${directory}${symlink}${socket}${pipe}${executable}${block_special}"
+LSCOLORS="${LSCOLORS}${char_special}${exec_setuid}${exec_setgid}"
+LSCOLORS="${LSCOLORS}${dir_wo_sticky}${dir_wo_unsticky}"
+export LSCOLORS=$LSCOLORS
+# Default:
+# export LSCOLORS=GxFxCxDxBxegedabagaced
