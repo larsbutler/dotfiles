@@ -44,7 +44,10 @@ autocmd FileType python set textwidth=79
 
 " JavaScript settings
 "
+autocmd FileType javascript setlocal tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2
 " Display an error in .js files as well if the line grows beyond 79 chars.
+autocmd BufRead,BufNewFile *.js :match ErrorMsg '\%>79v.\+'
 autocmd BufRead,BufNewFile *.js :match ErrorMsg '\%>79v.\+'
 " set javascript syntax highlighting for .json files
 autocmd BufRead,BufNewFile *.json :setf javascript
@@ -55,6 +58,17 @@ autocmd BufRead,BufNewFile *.json :setf javascript
 " limit the length of messages to 72 chars
 autocmd FileType gitcommit :match ErrorMsg '\%>72v.\+'
 autocmd FileType gitcommit set textwidth=72
+
+" markdown settings
+autocmd BufRead,BufNewFile *.md :set syntax=markdown
+
+" html settings
+autocmd FileType html setlocal tabstop=2
+autocmd FileType html setlocal shiftwidth=2
+
+" yaml settings
+autocmd FileType yaml setlocal tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2
 
 " Trim trailing whitespace:
 function TrimWhiteSpace()
