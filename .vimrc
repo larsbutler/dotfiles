@@ -11,6 +11,7 @@ set incsearch
 set cursorline
 set nohidden
 set list listchars=tab:»·,trail:·
+set backspace=indent,eol,start
 
 " Use tree style listing in Explore mode
 let g:netrw_liststyle = 3
@@ -42,10 +43,9 @@ set tags=./tags;
 autocmd BufRead,BufNewFile *.py :match ErrorMsg '\%>79v.\+'
 autocmd FileType python set textwidth=79
 
-" JavaScript settings
-"
-autocmd FileType javascript setlocal tabstop=2
-autocmd FileType javascript setlocal shiftwidth=2
+" Some files need to have a tab width of 2:
+autocmd FileType javascript,json,yaml,html setlocal tabstop=2
+autocmd FileType javascript,json,yaml,html setlocal shiftwidth=2
 " Display an error in .js files as well if the line grows beyond 79 chars.
 autocmd BufRead,BufNewFile *.js :match ErrorMsg '\%>79v.\+'
 autocmd BufRead,BufNewFile *.js :match ErrorMsg '\%>79v.\+'
@@ -61,14 +61,6 @@ autocmd FileType gitcommit set textwidth=72
 
 " markdown settings
 autocmd BufRead,BufNewFile *.md :set syntax=markdown
-
-" html settings
-autocmd FileType html setlocal tabstop=2
-autocmd FileType html setlocal shiftwidth=2
-
-" yaml settings
-autocmd FileType yaml setlocal tabstop=2
-autocmd FileType yaml setlocal shiftwidth=2
 
 " Trim trailing whitespace:
 function TrimWhiteSpace()

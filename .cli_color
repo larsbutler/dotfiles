@@ -61,7 +61,7 @@ default="x"
 
 # Each color is a pair of characters, indicating foreground and background
 # respectively.
-directory="${black}${green}"
+directory="${black}${brown}"
 symlink="${bold_magenta}${default}"
 socket="${bold_cyan}${default}"
 pipe="${bold_brown}${default}"
