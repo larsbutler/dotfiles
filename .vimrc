@@ -12,6 +12,10 @@ set cursorline
 set nohidden
 set list listchars=tab:»·,trail:·
 set backspace=indent,eol,start
+" Highlight all search results
+set hlsearch
+hi Search   cterm=BOLD  ctermfg=NONE    ctermbg=blue
+hi IncSearch    cterm=BOLD  ctermfg=NONE    ctermbg=red
 
 " Use tree style listing in Explore mode
 let g:netrw_liststyle = 3
