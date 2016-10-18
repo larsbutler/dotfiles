@@ -1,0 +1,5 @@
+# Use https instead of git and git+ssh
+[url "https://github.com/"]
+  insteadOf = git://github.com/
+[url "https://github.com/"]
+  insteadOf = git@github.com:
