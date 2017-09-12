@@ -67,6 +67,9 @@ autocmd FileType gitcommit set textwidth=72
 " markdown settings
 autocmd BufRead,BufNewFile *.md :set syntax=markdown
 
+" BNF settings
+autocmd BufRead,BufNewFile *.bnf :set syntax=bnf
+
 " Trim trailing whitespace:
 function TrimWhiteSpace()
     " Don't strip whitespace on these filetypes
