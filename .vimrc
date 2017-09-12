@@ -85,3 +85,6 @@ autocmd FileWritePre   * :call TrimWhiteSpace()
 autocmd FileAppendPre  * :call TrimWhiteSpace()
 autocmd FilterWritePre * :call TrimWhiteSpace()
 autocmd BufWritePre    * :call TrimWhiteSpace()
+
+" disable audio bell in macvim
+autocmd! GUIEnter * set vb t_vb=
