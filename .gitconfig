@@ -7,3 +7,5 @@
     editor = vim
 [url "https://github.com"]
 	insteadOf = git://github.com
+[gitreview]
+	username = larsbutler
