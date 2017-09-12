@@ -11,20 +11,28 @@ fi
 
 __prompt_command() {
     local EXIT_CODE="$?"
-    PS1=""
-    PS1="$WHITE\u$PURPLE@$CYAN\h: $LIGHT_GREEN\w $GIT_PS1 $LIGHT_GRAY\n"
+    PROMPT="$WHITE\u$PURPLE@$CYAN\h: $LIGHT_GREEN\w$GIT_PS1 $LIGHT_GRAY\n"
     if [ $EXIT_CODE == 0 ]; then
         # Green 0
-        PS1+="${GREEN}[0]${LIGHT_GRAY}"
+        PROMPT+="${GREEN}[0]${LIGHT_GRAY}"
     else
         # Red <whatever the code is>
-        PS1+="${RED}[${EXIT_CODE}]${LIGHT_GRAY}"
+        PROMPT+="${RED}[${EXIT_CODE}]${LIGHT_GRAY}"
     fi
 
     # Finish the prompt:
-    PS1+=" $ "
+    PROMPT+=" $ "
 
-    export PS1=${PS1}
+    # Add virtual env prefix:
+    if [ -z ${VIRTUAL_ENV+x} ]
+    then
+        VENV_PREFIX=""
+    else
+        PY_VERSION="$(python -c 'import platform; print(platform.python_version())')"
+        VENV_PREFIX="(${LIGHT_BLUE}$(basename "$VIRTUAL_ENV")${LIGHT_GRAY}/${PURPLE}py${PY_VERSION}${LIGHT_BLUE}${LIGHT_GRAY}) "
+    fi
+
+    export PS1="${VENV_PREFIX}${PROMPT}"
     EXIT_CODE=0
 }
 export PROMPT_COMMAND="__prompt_command;update_terminal_cwd"
