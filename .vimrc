@@ -16,6 +16,7 @@ set backspace=indent,eol,start
 set hlsearch
 hi Search   cterm=BOLD  ctermfg=NONE    ctermbg=blue
 hi IncSearch    cterm=BOLD  ctermfg=NONE    ctermbg=red
+" setlocal spell spelllang=en_us
 
 " Use tree style listing in Explore mode
 let g:netrw_liststyle = 3
