@@ -1,3 +1,7 @@
+" Package management:
+execute pathogen#infect()
+filetype plugin indent on
+
 " general settings
 "
 syntax on
