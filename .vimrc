@@ -51,6 +51,20 @@ set tags=./tags;
 " This makes pep8 happy.
 autocmd BufRead,BufNewFile *.py :match ErrorMsg '\%>79v.\+'
 autocmd FileType python set textwidth=79
+""""""
+set foldenable
+set foldmethod=indent
+" The level at which you start folding code:
+set foldlevelstart=2
+" The level at which you can nest folding.
+" If you have lots of nested indents, keep this low.
+set foldnestmax=2
+" set foldminlines=32
+set foldlevel=-1
+""""""
+" Automatically save/load code collapse settings:
+"autocmd BufWinLeave * mkview
+"autocmd BufWinEnter * silent loadview
 
 " Some files need to have a tab width of 2:
 autocmd FileType javascript,json,yaml,html setlocal tabstop=2
