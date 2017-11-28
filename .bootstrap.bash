@@ -11,3 +11,5 @@ alias crypt-recv="gpg --decrypt --armor"
 alias diff=colordiff
 #export GREP_OPTIONS='--color=always'
 export LESS="-RSM~gIsw"
+# use vi for command line editing
+set -o vi
