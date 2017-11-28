@@ -6,3 +6,8 @@ source .git-prompt.sh
 
 alias crypt-send="gpg --encrypt --sign --armor --recipient"
 alias crypt-recv="gpg --decrypt --armor"
+# colors in diff, grep, and less
+# :)
+alias diff=colordiff
+#export GREP_OPTIONS='--color=always'
+export LESS="-RSM~gIsw"
